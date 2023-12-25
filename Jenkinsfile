@@ -8,12 +8,10 @@ pipeline {
                 git 'https://github.com/AmiraKortam/cloud_task_jen.git'
             }
         }
-
         stage('Execute Bash Script') {
             steps {
-                // Execute the bash script and capture the output
                 script {
-                    def output = sh(script: './who.sh', returnStdout: true).trim()
+                    def output = bat(script: 'who.sh', returnStdout: true).trim()
                     echo "Script Output: ${output}"
                 }
             }
